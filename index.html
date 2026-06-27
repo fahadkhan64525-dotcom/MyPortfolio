@@ -1,359 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Fahad | AI/ML Engineer</title>
-  <!-- Google Fonts + Tailwind + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary-dark': '#0F172A',
-            'secondary-dark': '#1E293B',
-            'accent-blue': '#3B82F6',
-            'accent-cyan': '#06B6D4',
-            'gray-muted': '#94A3B8',
-          },
-          fontFamily: {
-            'sans': ['Inter', 'system-ui', 'sans-serif'],
-          },
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Fahad | AI/ML Engineer</title>
+    <!-- Google Fonts + Tailwind + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-dark": "#0F172A",
+                        "secondary-dark": "#1E293B",
+                        "accent-blue": "#3B82F6",
+                        "accent-cyan": "#06B6D4",
+                        "gray-muted": "#94A3B8",
+                        "whatsapp": "#25D366",
+                        "whatsapp-dark": "#128C7E",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "system-ui", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
         }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .gradient-bg {
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-    }
-    .card-hover {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.3);
-    }
-    .skill-tag {
-      transition: all 0.2s;
-    }
-    .skill-tag:hover {
-      background-color: #3B82F6;
-      color: white;
-      transform: scale(1.02);
-    }
-    /* mobile menu */
-    .mobile-nav-open {
-      display: block !important;
-    }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: #1E293B;
-        padding: 1rem;
-        border-radius: 1rem;
-        margin-top: 1rem;
-        gap: 0.75rem;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-    }
-  </style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.3);
+        }
+        .skill-tag {
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background-color: #3B82F6;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* Floating WhatsApp & Call Buttons */
+        .float-btn {
+            position: fixed;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: #fff;
+            font-size: 28px;
+            border: none;
+            cursor: pointer;
+        }
+        .float-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+        }
+        .float-btn-wa {
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+        }
+        .float-btn-wa:hover {
+            background: #128C7E;
+        }
+        .float-btn-call {
+            bottom: 92px;
+            right: 24px;
+            background: #3B82F6;
+        }
+        .float-btn-call:hover {
+            background: #2563EB;
+        }
+        /* small screens: adjust spacing */
+        @media (max-width: 480px) {
+            .float-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 24px;
+            }
+            .float-btn-wa {
+                bottom: 18px;
+                right: 18px;
+            }
+            .float-btn-call {
+                bottom: 80px;
+                right: 18px;
+            }
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #fff;
+        }
+        .btn-wa:hover {
+            background: #128C7E;
+            color: #fff;
+        }
+        .btn-call {
+            background: #3B82F6;
+            color: #fff;
+        }
+        .btn-call:hover {
+            background: #2563EB;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: #1E293B;
+                padding: 1rem;
+                border-radius: 1rem;
+                margin-top: 1rem;
+                gap: 0.75rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body class="bg-primary-dark text-gray-200 font-sans antialiased">
 
-  <!-- Navigation -->
-  <nav class="bg-secondary-dark/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-700">
+    <!-- ===== FLOATING WHATSAPP + CALL BUTTONS ===== -->
+    <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="float-btn float-btn-wa"
+    aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="tel:+917037959878"
+class="float-btn float-btn-call"
+aria-label="Call Fahad">
+<i class="fas fa-phone-alt"></i>
+</a>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="bg-secondary-dark/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-700">
     <div class="max-w-6xl mx-auto px-5 py-4 flex flex-wrap items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-12 h-12 rounded-full object-cover">
-        <span class="text-2xl font-bold tracking-tight text-white">Fahad<span class="text-accent-blue">.</span></span>
-      </div>
-      <button id="menuToggle" class="md:hidden text-white text-2xl focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div id="navLinks" class="nav-links md:flex md:flex-row md:items-center md:space-x-8 space-y-2 md:space-y-0 text-base font-medium">
-        <a href="#home" class="hover:text-accent-blue transition">Home</a>
-        <a href="#about" class="hover:text-accent-blue transition">About</a>
-        <a href="#skills" class="hover:text-accent-blue transition">Skills</a>
-        <a href="#projects" class="hover:text-accent-blue transition">Projects</a>
-        <a href="#experience" class="hover:text-accent-blue transition">Experience</a>
-        <a href="#contact" class="hover:text-accent-blue transition">Contact</a>
-      </div>
-      <div class="hidden md:block">
-        <a href="#contact" class="bg-accent-blue hover:bg-accent-cyan text-white px-5 py-2 rounded-full transition font-semibold text-sm shadow-lg">Hire Me</a>
-      </div>
+        <div class="flex items-center space-x-2">
+            <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-12 h-12 rounded-full object-cover" />
+            <span class="text-2xl font-bold tracking-tight text-white">Fahad<span class="text-accent-blue">.</span></span>
+        </div>
+        <button id="menuToggle" class="md:hidden text-white text-2xl focus:outline-none" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="navLinks" class="nav-links md:flex md:flex-row md:items-center md:space-x-8 space-y-2 md:space-y-0 text-base font-medium">
+            <a href="#home" class="hover:text-accent-blue transition">Home</a>
+            <a href="#about" class="hover:text-accent-blue transition">About</a>
+            <a href="#skills" class="hover:text-accent-blue transition">Skills</a>
+            <a href="#projects" class="hover:text-accent-blue transition">Projects</a>
+            <a href="#experience" class="hover:text-accent-blue transition">Experience</a>
+            <a href="#contact" class="hover:text-accent-blue transition">Contact</a>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+            <a href="tel:+917037959878" class="text-gray-300 hover:text-white transition text-sm flex items-center gap-1.5">
+                <i class="fas fa-phone-alt text-accent-blue"></i> Call
+            </a>
+            <a href="#contact" class="bg-accent-blue hover:bg-accent-cyan text-white px-5 py-2 rounded-full transition font-semibold text-sm shadow-lg">
+                Hire Me
+            </a>
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <main>
-    <!-- Hero Section -->
+<main>
+    <!-- ===== HERO SECTION ===== -->
     <section id="home" class="min-h-[90vh] flex items-center justify-center relative overflow-hidden gradient-bg">
-      <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-accent-blue rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent-cyan rounded-full filter blur-3xl"></div>
-      </div>
-      <div class="relative z-10 text-center px-5 max-w-4xl mx-auto">
-        <div class="inline-flex items-center bg-secondary-dark/60 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm border border-gray-600">
-          <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-8 h-8 rounded-full object-cover mr-2">
-          <span class="text-sm font-medium">AI / ML Engineer</span>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-accent-blue rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent-cyan rounded-full blur-3xl"></div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
-          I'm <span class="text-accent-blue">Fahad Khan</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mt-4 max-w-2xl mx-auto">
-          AI/ML Engineer | Building scalable intelligent systems for real-world challenges
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <a href="#projects" class="bg-accent-blue hover:bg-accent-cyan text-white font-semibold px-7 py-3 rounded-full transition shadow-lg">View Projects</a>
-          <a href="#contact" class="border border-gray-400 hover:border-accent-blue hover:text-accent-blue text-gray-200 font-semibold px-7 py-3 rounded-full transition">Contact Me</a>
-        </div>
-        <div class="flex justify-center gap-6 mt-12 text-gray-400">
-          <a href="https://github.com/fahadkhan64525-dotcom" class="hover:text-accent-blue transition text-2xl"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/fahadkhan64525" class="hover:text-accent-blue transition text-2xl"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://twitter.com/fahadkhan64525" class="hover:text-accent-blue transition text-2xl"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.kaggle.com/fahadkhan64525" class="hover:text-accent-blue transition text-2xl"><i class="fab fa-kaggle"></i></a>
-        </div>
-      </div>
-    </section>
+        <div class="relative z-10 text-center px-5 max-w-4xl mx-auto">
+            <div class="inline-flex items-center bg-secondary-dark/60 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm border border-gray-600">
+                <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-8 h-8 rounded-full object-cover mr-2" />
+                <span class="text-sm font-medium">AI / ML Engineer</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+                I'm <span class="text-accent-blue">Fahad Khan</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mt-4 max-w-2xl mx-auto">
+                AI/ML Engineer | Building scalable intelligent systems for real-world challenges
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <a href="#projects" class="bg-accent-blue hover:bg-accent-cyan text-white font-semibold px-7 py-3 rounded-full transition shadow-lg">
+                    View Projects
+                </a>
+                <a href="#contact" class="border border-gray-400 hover:border-accent-blue hover:text-accent-blue text-gray-200 font-semibold px-7 py-3 rounded-full transition">
+                    Contact Me
+                </a>
+                <!-- WhatsApp & Call Buttons in Hero -->
+                <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-wa font-semibold px-7 py-3 rounded-full transition shadow-lg flex items-center gap-2">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="tel:+917037959878"
+            class="btn-call font-semibold px-7 py-3 rounded-full transition shadow-lg flex items-center gap-2">
+            <i class="fas fa-phone-alt"></i> Call Me
+        </a>
+    </div>
+    <div class="flex justify-center gap-6 mt-12 text-gray-400">
+        <a href="https://github.com/fahadkhan64525-dotcom" class="hover:text-accent-blue transition text-2xl" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/fahadkhan64525" class="hover:text-accent-blue transition text-2xl" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/fahadkhan64525" class="hover:text-accent-blue transition text-2xl" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.kaggle.com/fahadkhan64525" class="hover:text-accent-blue transition text-2xl" target="_blank" rel="noopener noreferrer"><i class="fab fa-kaggle"></i></a>
+    </div>
+</div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-secondary-dark/30">
-      <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="py-20 bg-secondary-dark/30">
+    <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
         <div class="order-2 md:order-1">
-          <span class="text-accent-blue font-semibold uppercase tracking-wide">About me</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">AI/ML Engineer with a passion for solving complex problems</h2>
-          <p class="text-gray-300 leading-relaxed mt-4">
-            I'm a results-driven Machine Learning Engineer with expertise in deep learning, computer vision, and NLP. I specialize in architecting end-to-end ML pipelines, from data engineering to model deployment. With 3+ years of industry experience, I've delivered production-grade AI solutions for healthcare, fintech, and e-commerce sectors, driving measurable business impact.
-          </p>
-          <div class="grid grid-cols-2 gap-4 mt-6">
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> TensorFlow / PyTorch</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> Scikit-learn / XGBoost</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> MLOps (Docker, MLflow)</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> Cloud (AWS, GCP)</span></div>
-          </div>
-          <div class="mt-8">
-            <a href="https://drive.google.com/uc?export=download&id=17pdxroVi4PPzuw6O4yzC3UQjnjlnU3lP" class="inline-flex items-center gap-2 text-accent-blue hover:underline"><i class="fas fa-download"></i> Download Resume</a>
-          </div>
+            <span class="text-accent-blue font-semibold uppercase tracking-wide">About me</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">AI/ML Engineer with a passion for solving complex problems</h2>
+            <p class="text-gray-300 leading-relaxed mt-4">
+                I'm a results-driven Machine Learning Engineer with expertise in deep learning, computer vision, and NLP.
+                I specialize in architecting end-to-end ML pipelines, from data engineering to model deployment.
+                With 3+ years of industry experience, I've delivered production-grade AI solutions for healthcare,
+                fintech, and e-commerce sectors, driving measurable business impact.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> TensorFlow / PyTorch</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> Scikit-learn / XGBoost</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> MLOps (Docker, MLflow)</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-blue"></i><span> Cloud (AWS, GCP)</span></div>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="https://drive.google.com/uc?export=download&id=17pdxroVi4PPzuw6O4yzC3UQjnjlnU3lP" class="inline-flex items-center gap-2 text-accent-blue hover:underline">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="tel:+917037959878" class="inline-flex items-center gap-2 text-accent-blue hover:underline">
+                    <i class="fas fa-phone-alt"></i> Call Me
+                </a>
+                <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-accent-blue hover:underline">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
-        <div class="order-1 md:order-2 flex justify-center">
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent-blue shadow-2xl">
-            <!-- placeholder avatar using UI faces -->
-            <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-full h-full object-cover">
-          </div>
+    </div>
+    <div class="order-1 md:order-2 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent-blue shadow-2xl">
+            <img src="https://i.ibb.co/1Y6PPXwc/fahad.jpg" alt="Fahad profile" class="w-full h-full object-cover" />
         </div>
-      </div>
-    </section>
+    </div>
+</div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 gradient-bg">
-      <div class="max-w-6xl mx-auto px-5 text-center">
+<!-- ===== SKILLS SECTION ===== -->
+<section id="skills" class="py-20 gradient-bg">
+    <div class="max-w-6xl mx-auto px-5 text-center">
         <span class="text-accent-blue font-semibold uppercase">Expertise</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Technical Arsenal</h2>
-        <p class="text-gray-300 max-w-2xl mx-auto mb-12">Tools & frameworks I work with daily to build robust AI systems.</p>
+        <p class="text-gray-300 max-w-2xl mx-auto mb-12">Tools and frameworks I work with daily to build robust AI systems.</p>
         <div class="flex flex-wrap justify-center gap-3">
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Python</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">TensorFlow</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">PyTorch</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Keras</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Pandas/NumPy</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Scikit-learn</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">OpenCV</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Hugging Face</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">LangChain</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">FastAPI</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Docker</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">SQL/NoSQL</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">AWS SageMaker</span>
-          <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Git/GitHub</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Python</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">TensorFlow</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">PyTorch</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Keras</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Pandas/NumPy</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Scikit-learn</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">OpenCV</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Hugging Face</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">LangChain</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">FastAPI</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Docker</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">SQL/NoSQL</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">AWS SageMaker</span>
+            <span class="skill-tag bg-secondary-dark px-5 py-2 rounded-full text-sm font-medium">Git/GitHub</span>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-secondary-dark/30">
-      <div class="max-w-6xl mx-auto px-5">
+<!-- ===== PROJECTS SECTION ===== -->
+<section id="projects" class="py-20 bg-secondary-dark/30">
+    <div class="max-w-6xl mx-auto px-5">
         <div class="text-center mb-12">
-          <span class="text-accent-blue font-semibold uppercase">Portfolio</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Featured AI Projects</h2>
-          <p class="text-gray-300 mt-2">Real-world solutions demonstrating end-to-end ML engineering.</p>
+            <span class="text-accent-blue font-semibold uppercase">Portfolio</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Featured AI Projects</h2>
+            <p class="text-gray-300 mt-2">Real-world solutions demonstrating end-to-end ML engineering.</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- project 1 -->
-          <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
-            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&auto=format" alt="Computer vision" class="w-full h-48 object-cover">
-            <div class="p-5">
-              <div class="flex justify-between items-start gap-2"><h3 class="text-xl font-bold text-white">Medical Image Segmentation</h3><span class="bg-accent-blue/20 text-accent-blue text-xs px-3 py-1 rounded-full whitespace-nowrap">PyTorch</span></div>
-              <p class="text-gray-400 text-sm mt-2">Implemented U-Net architecture for medical image segmentation achieving 92% Dice score. Production deployment on AWS with containerization and comprehensive monitoring.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">CNN</span><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">MONAI</span></div>
-              <div class="flex gap-3 mt-4"><a href="https://github.com/fahadkhan64525-dotcom" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Code</a><a href="#" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fas fa-external-link-alt mr-1"></i>Details</a></div>
+            <!-- Project 1 -->
+            <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
+                <img src="https://i.ibb.co/SDRqj6D7/oject.png" alt="Project" class="w-full h-48 object-cover" />
+                <div class="p-5">
+                    <div class="flex justify-between items-start gap-2">
+                        <h3 class="text-xl font-bold text-white">Aerial Object Detection</h3>
+                        <span class="bg-accent-blue/20 text-accent-blue text-xs px-3 py-1 rounded-full whitespace-nowrap">TensorFlow</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">Implemented U-Net architecture for medical image segmentation achieving 92% Dice score. Production deployment on AWS with containerization and comprehensive monitoring.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">CNN</span>
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">Streamlit</span>
+                    </div>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://github.com/fahadkhan64525-dotcom/objectAIdection" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Code</a>
+                        <a href="https://objectaidection.streamlit.app/" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fas fa-external-link-alt mr-1"></i>Live Demo</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- project 2 -->
-          <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format" alt="NLP project" class="w-full h-48 object-cover">
-            <div class="p-5">
-              <h3 class="text-xl font-bold text-white">AI Customer Support Chatbot</h3>
-              <span class="bg-accent-cyan/20 text-accent-cyan text-xs px-2 py-1 rounded-full">LLM / RAG</span>
-              <p class="text-gray-400 text-sm mt-2">RAG-based customer support system using Llama 2 and vector embeddings. Reduced ticket resolution time by 40% and improved customer satisfaction by 35%.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">HuggingFace</span><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">Streamlit</span></div>
-              <div class="flex gap-3 mt-4"><a href="https://github.com/fahadkhan64525-dotcom" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Code</a><a href="#" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fas fa-external-link-alt mr-1"></i>Live Demo</a></div>
+            <!-- Project 2 -->
+            <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
+                <img src="https://i.ibb.co/67J7hCFc/aitri.png" alt="NLP project" class="w-full h-48 object-cover" />
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-white">AI Customer Support Chatbot</h3>
+                    <span class="bg-accent-cyan/20 text-accent-cyan text-xs px-2 py-1 rounded-full">LLM / RAG</span>
+                    <p class="text-gray-400 text-sm mt-2">RAG-based customer support system using Llama 2 and vector embeddings. Reduced ticket resolution time by 40% and improved customer satisfaction by 35%.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">HuggingFace</span>
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">Streamlit</span>
+                    </div>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://github.com/fahadkhan64525-dotcom" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Code</a>
+                        <a href="#" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fas fa-external-link-alt mr-1"></i>Live Demo</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- project 3 -->
-          <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format" alt="Time series" class="w-full h-48 object-cover">
-            <div class="p-5">
-              <h3 class="text-xl font-bold text-white">Sales Forecasting Engine</h3>
-              <span class="bg-accent-blue/20 text-accent-blue text-xs px-2 py-1 rounded-full">XGBoost/Prophet</span>
-              <p class="text-gray-400 text-sm mt-2">Developed multi-horizon time series forecasting system for 10K+ retail SKUs with seasonal decomposition and external features. Improved forecast accuracy by 22%.</p>
-              <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">MLflow</span><span class="text-xs bg-gray-800 px-2 py-0.5 rounded">Pandas</span></div>
-              <div class="flex gap-3 mt-4"><a href="https://github.com/fahadkhan64525-dotcom" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Repository</a></div>
+            <!-- Project 3 -->
+            <div class="bg-secondary-dark rounded-2xl overflow-hidden shadow-lg card-hover border border-gray-700">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format" alt="Time series" class="w-full h-48 object-cover" />
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-white">Sales Forecasting Engine</h3>
+                    <span class="bg-accent-blue/20 text-accent-blue text-xs px-2 py-1 rounded-full">XGBoost/Prophet</span>
+                    <p class="text-gray-400 text-sm mt-2">Developed multi-horizon time series forecasting system for 10K+ retail SKUs with seasonal decomposition and external features. Improved forecast accuracy by 22%.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">MLflow</span>
+                        <span class="text-xs bg-gray-800 px-2 py-0.5 rounded">Pandas</span>
+                    </div>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://github.com/fahadkhan64525-dotcom" class="text-accent-blue text-sm hover:text-accent-cyan transition"><i class="fab fa-github mr-1"></i>Repository</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="text-center mt-10">
-          <a href="https://github.com/fahadkhan64525-dotcom" class="inline-flex items-center gap-2 text-accent-blue border border-accent-blue rounded-full px-6 py-2 hover:bg-accent-blue/10 transition">More on GitHub <i class="fab fa-github"></i></a>
+            <a href="https://github.com/fahadkhan64525-dotcom" class="inline-flex items-center gap-2 text-accent-blue border border-accent-blue rounded-full px-6 py-2 hover:bg-accent-blue/10 transition">
+                More on GitHub <i class="fab fa-github"></i>
+            </a>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Experience & Education -->
-    <section id="experience" class="py-20 gradient-bg">
-      <div class="max-w-6xl mx-auto px-5">
+<!-- ===== EXPERIENCE & EDUCATION ===== -->
+<section id="experience" class="py-20 gradient-bg">
+    <div class="max-w-6xl mx-auto px-5">
         <div class="text-center mb-12">
-          <span class="text-accent-blue font-semibold uppercase">Journey</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Experience & Education</h2>
+            <span class="text-accent-blue font-semibold uppercase">Journey</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Experience & Education</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-10">
-          <!-- Experience column -->
-          <div>
-            <div class="flex items-center gap-3 mb-6"><i class="fas fa-briefcase text-accent-blue text-2xl"></i><h3 class="text-2xl font-semibold">Work Experience</h3></div>
-            <div class="space-y-6">
-              <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-accent-blue">
-                <h4 class="text-xl font-bold">Senior ML Engineer</h4>
-                <p class="text-accent-blue text-sm">TechCorp AI · 2023 – Present</p>
-                <p class="text-gray-300 text-sm mt-2">Led development of computer vision pipeline for autonomous quality inspection. Reduced false positive rate by 25%, deployed across 15 manufacturing facilities.</p>
-              </div>
-              <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-gray-500">
-                <h4 class="text-xl font-bold">ML Engineer</h4>
-                <p class="text-accent-blue text-sm">DataMind Analytics · 2021 – 2023</p>
-                <p class="text-gray-300 text-sm mt-2">Architected recommendation engine and customer segmentation models for e-commerce platform. Increased click-through rate by 18% and revenue per user by 12%.</p>
-              </div>
-              <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-gray-500">
-                <h4 class="text-xl font-bold">AI Research Intern</h4>
-                <p class="text-accent-blue text-sm">University AI Lab · 2020 – 2021</p>
-                <p class="text-gray-300 text-sm mt-2">Researched efficient transformer architectures; published peer-reviewed paper at ICML workshop. Implemented distributed training reducing computation time by 40%.</p>
-              </div>
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-briefcase text-accent-blue text-2xl"></i>
+                    <h3 class="text-2xl font-semibold">Work Experience</h3>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-accent-blue">
+                        <h4 class="text-xl font-bold">Senior ML Engineer</h4>
+                        <p class="text-accent-blue text-sm">TechCorp AI | 2023 - Present</p>
+                        <p class="text-gray-300 text-sm mt-2">Led development of computer vision pipeline for autonomous quality inspection. Reduced false positive rate by 25%, deployed across 15 manufacturing facilities.</p>
+                    </div>
+                    <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-gray-500">
+                        <h4 class="text-xl font-bold">ML Engineer</h4>
+                        <p class="text-accent-blue text-sm">DataMind Analytics | 2021 - 2023</p>
+                        <p class="text-gray-300 text-sm mt-2">Architected recommendation engine and customer segmentation models for e-commerce platform. Increased click-through rate by 18% and revenue per user by 12%.</p>
+                    </div>
+                    <div class="bg-secondary-dark/60 p-5 rounded-xl border-l-4 border-gray-500">
+                        <h4 class="text-xl font-bold">AI Research Intern</h4>
+                        <p class="text-accent-blue text-sm">University AI Lab | 2020 - 2021</p>
+                        <p class="text-gray-300 text-sm mt-2">Researched efficient transformer architectures, published peer-reviewed work at an ICML workshop, and implemented distributed training that reduced computation time by 40%.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Education column -->
-          <div>
-            <div class="flex items-center gap-3 mb-6"><i class="fas fa-graduation-cap text-accent-blue text-2xl"></i><h3 class="text-2xl font-semibold">Education</h3></div>
-            <div class="space-y-6">
-              <div class="bg-secondary-dark/60 p-5 rounded-xl">
-                <h4 class="text-xl font-bold">B.Tech CSE with AI Specialization</h4>
-                <p class="text-accent-blue text-sm">Teerthanker Mahaveer University · 2020 – 2024</p>
-                <p class="text-gray-300 text-sm mt-2">Specialized in Deep Learning, Reinforcement Learning, and Computer Vision. GPA: 3.8/4.0</p>
-              </div>
-
-              <div class="bg-secondary-dark/60 p-5 rounded-xl">
-                <h4 class="text-xl font-bold">Certifications</h4>
-                <p class="text-gray-300 text-sm mt-2">• TensorFlow Developer Certificate<br>• AWS Certified Machine Learning – Specialty<br>• Deep Learning Specialization (deeplearning.ai)</p>
-              </div>
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-graduation-cap text-accent-blue text-2xl"></i>
+                    <h3 class="text-2xl font-semibold">Education</h3>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-secondary-dark/60 p-5 rounded-xl">
+                        <h4 class="text-xl font-bold">B.Tech CSE with AI Specialization</h4>
+                        <p class="text-accent-blue text-sm">Teerthanker Mahaveer University | 2020 - 2024</p>
+                        <p class="text-gray-300 text-sm mt-2">Specialized in Deep Learning, Reinforcement Learning, and Computer Vision. GPA: 3.8/4.0</p>
+                    </div>
+                    <div class="bg-secondary-dark/60 p-5 rounded-xl">
+                        <h4 class="text-xl font-bold">Certifications</h4>
+                        <ul class="text-gray-300 text-sm mt-2 space-y-1 list-disc list-inside">
+                            <li>TensorFlow Developer Certificate</li>
+                            <li>AWS Certified Machine Learning - Specialty</li>
+                            <li>Deep Learning Specialization (deeplearning.ai)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-secondary-dark/30">
-      <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-12">
-        <div>
-          <span class="text-accent-blue font-semibold uppercase">Get in touch</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Let’s work together</h2>
-          <p class="text-gray-300 mt-4">I'm open to freelance, full-time opportunities, or research collaborations. Feel free to reach out.</p>
-          <div class="mt-6 space-y-4 text-gray-200">
-            <div class="flex items-center gap-3"><i class="fas fa-envelope text-accent-blue w-6"></i><a href="mailto:fahad.khan@example.com" class="hover:text-accent-blue transition">fahad.khan@example.com</a></div>
-            <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-accent-blue w-6"></i><a href="tel:+919876543210" class="hover:text-accent-blue transition">+91 98765 43210</a></div>
-            <div class="flex items-center gap-3"><i class="fab fa-linkedin text-accent-blue w-6"></i><a href="https://www.linkedin.com/in/fahadkhan64525" class="hover:text-accent-blue transition">LinkedIn</a></div>
-            <div class="flex items-center gap-3"><i class="fab fa-github text-accent-blue w-6"></i><a href="https://github.com/fahadkhan64525-dotcom" class="hover:text-accent-blue transition">GitHub</a></div>
-          </div>
-        </div>
-        <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-gray-700">
-          <h3 class="text-2xl font-bold text-white mb-4">Get in touch</h3>
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="mb-4"><input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue outline-none transition" required></div>
-            <div class="mb-4"><input type="email" name="email" placeholder="Email address" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue outline-none transition" required></div>
-            <div class="mb-4"><textarea rows="4" name="message" placeholder="Tell me about your project or opportunity..." class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue outline-none transition" required></textarea></div>
-            <button type="submit" class="bg-accent-blue hover:bg-accent-cyan text-white font-semibold py-3 px-6 rounded-full w-full transition shadow-md">Send Message</button>
-          </form>
-          <p class="text-gray-400 text-xs text-center mt-4">I'll respond within 24–48 hours</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-primary-dark py-6 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-gray-400 text-sm">© 2025 Fahad – AI/ML Engineer. Built with ⚡.</p>
-      <div class="flex gap-5 text-gray-400">
-        <a href="https://github.com/fahadkhan64525-dotcom" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-github text-xl"></i></a>
-        <a href="https://www.linkedin.com/in/fahadkhan64525" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-        <a href="https://twitter.com/fahadkhan64525" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-twitter text-xl"></i></a>
-        <a href="mailto:fahad.khan@example.com" class="hover:text-accent-blue transition"><i class="fas fa-envelope text-xl"></i></a>
-      </div>
     </div>
-  </footer>
+</section>
 
-  <!-- Mobile menu toggle script + contact form alert -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="py-20 bg-secondary-dark/30">
+    <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-12">
+        <div>
+            <span class="text-accent-blue font-semibold uppercase">Get in touch</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Let's work together</h2>
+            <p class="text-gray-300 mt-4">I'm open to freelance, full-time opportunities, or research collaborations. Feel free to reach out.</p>
+            <div class="mt-6 space-y-4 text-gray-200">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-envelope text-accent-blue w-6"></i>
+                    <a href="mailto:fahadkhan64525@gmail.com" class="hover:text-accent-blue transition">fahadkhan64525@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-phone-alt text-accent-blue w-6"></i>
+                    <a href="tel:+917037959878" class="hover:text-accent-blue transition">+91 70379 59878</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-whatsapp w-6"></i>
+                    <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-whatsapp transition">
+                    Chat on WhatsApp
+                </a>
+            </div>
+            <div class="flex items-center gap-3">
+                <i class="fab fa-linkedin text-accent-blue w-6"></i>
+                <a href="https://www.linkedin.com/in/fahadkhan64525" class="hover:text-accent-blue transition" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <i class="fab fa-github text-accent-blue w-6"></i>
+                <a href="https://github.com/fahadkhan64525-dotcom" class="hover:text-accent-blue transition" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-wa font-semibold px-6 py-2.5 rounded-full transition shadow-lg flex items-center gap-2 text-sm">
+            <i class="fab fa-whatsapp"></i> WhatsApp Me
+        </a>
+        <a href="tel:+917037959878"
+        class="btn-call font-semibold px-6 py-2.5 rounded-full transition shadow-lg flex items-center gap-2 text-sm">
+        <i class="fas fa-phone-alt"></i> Call Me
+    </a>
+</div>
+</div>
+
+<!-- Contact Form -->
+<div class="bg-secondary-dark p-8 rounded-2xl shadow-xl border border-gray-700">
+    <h3 class="text-2xl font-bold text-white mb-2">Send Your Message</h3>
+    <p class="text-accent-blue text-sm mb-6">Please fill out the form below to contact me</p>
+    <form id="contactForm" class="space-y-4">
+        <div>
+            <label for="user_name" class="block mb-1 font-medium text-white">Full Name</label>
+            <input id="user_name" type="text" name="user_name" autocomplete="name" required placeholder="Enter your full name" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 outline-none transition" />
+        </div>
+        <div>
+            <label for="user_email" class="block mb-1 font-medium text-white">Email Address</label>
+            <input id="user_email" type="email" name="user_email" autocomplete="email" required placeholder="Enter your email" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 outline-none transition" />
+        </div>
+        <div>
+            <label for="message" class="block mb-1 font-medium text-white">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Type your message here" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-600 text-white focus:border-accent-blue focus:ring-2 focus:ring-accent-blue/30 outline-none transition resize-none"></textarea>
+        </div>
+        <button type="submit" class="bg-accent-blue hover:bg-accent-cyan disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-full w-full transition shadow-md">
+            Send Message
+        </button>
+    </form>
+    <p id="contactStatus" class="text-center mt-4 text-sm font-medium min-h-[1.25rem]" aria-live="polite"></p>
+    <p class="text-gray-400 text-xs text-center mt-2">I'll respond within 24-48 hours</p>
+</div>
+</div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-primary-dark py-6 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-400 text-sm">&copy; 2025 Fahad - AI/ML Engineer. Built with care. (Focus on career, Love is Scam 🚫)....Hope is good, but not forever☠️</p>
+        <div class="flex gap-5 text-gray-400">
+            <a href="https://github.com/fahadkhan64525-dotcom" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/fahadkhan64525" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+            <a href="https://twitter.com/fahadkhan64525" target="_blank" rel="noopener noreferrer" class="hover:text-accent-blue transition"><i class="fab fa-twitter text-xl"></i></a>
+            <a href="mailto:fahadkhan64525@gmail.com" class="hover:text-accent-blue transition"><i class="fas fa-envelope text-xl"></i></a>
+            <a href="https://wa.me/917037959878?text=Hi%20Fahad%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%21"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-whatsapp transition">
+            <i class="fab fa-whatsapp text-xl"></i>
+        </a>
+        <a href="tel:+917037959878" class="hover:text-accent-blue transition"><i class="fas fa-phone-alt text-xl"></i></a>
+    </div>
+</div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script>
+    // EmailJS config
+    const EMAILJS_PUBLIC_KEY = "RMUpaj6GTYvCDvQdk";
+    const EMAILJS_SERVICE_ID = "service_6gqghgm";
+    const EMAILJS_TEMPLATE_ID = "template_tento7u";
+    const emailJsReady = typeof window.emailjs !== "undefined";
+
+    if (emailJsReady) {
+        emailjs.init({
+            publicKey: EMAILJS_PUBLIC_KEY,
+        });
+    }
+
+    // Mobile nav toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
     if (menuToggle) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
     }
-    // Smooth close on link click (mobile)
-    document.querySelectorAll('#navLinks a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 768) navLinks.classList.remove('active');
-      });
+
+    document.querySelectorAll("#navLinks a").forEach((link) => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth < 768) {
+                navLinks.classList.remove("active");
+            }
+        });
     });
-    // Contact form submission feedback
-    const contactForm = document.getElementById('contactForm');
+
+    // Contact form
+    const contactForm = document.getElementById("contactForm");
+    const contactStatus = document.getElementById("contactStatus");
+
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        // Form will submit via Formspree, re-enable after response
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 2000);
-      });
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+
+            if (contactStatus) {
+                contactStatus.textContent = "Sending...";
+                contactStatus.className =
+                    "text-center mt-4 text-sm font-medium min-h-[1.25rem] text-accent-blue";
+            }
+
+            if (!emailJsReady) {
+                if (contactStatus) {
+                    contactStatus.textContent = "Email service is unavailable right now.";
+                    contactStatus.className =
+                        "text-center mt-4 text-sm font-medium min-h-[1.25rem] text-rose-400";
+                }
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            try {
+                const formData = new FormData(contactForm);
+                const userName = String(formData.get("user_name") || "").trim();
+                const userEmail = String(formData.get("user_email") || "").trim();
+                const message = String(formData.get("message") || "").trim();
+                const subject = `Portfolio contact from ${userName || "Website visitor"}`;
+                const submittedAt = new Date().toLocaleString("en-IN", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                });
+
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    user_name: userName,
+                    user_email: userEmail,
+                    message,
+                    name: userName,
+                    from_name: userName,
+                    email: userEmail,
+                    from_email: userEmail,
+                    reply_to: userEmail,
+                    subject,
+                    title: subject,
+                    time: submittedAt,
+                }, {
+                    publicKey: EMAILJS_PUBLIC_KEY,
+                });
+
+                contactForm.reset();
+
+                if (contactStatus) {
+                    contactStatus.textContent = "Message sent successfully.";
+                    contactStatus.className =
+                        "text-center mt-4 text-sm font-medium min-h-[1.25rem] text-emerald-400";
+                }
+            } catch (error) {
+                console.error("EmailJS error:", error);
+
+                if (contactStatus) {
+                    const errorText = error?.text || error?.message ||
+                        "Verify your EmailJS service ID, template ID, public key, and template variables.";
+                    contactStatus.textContent = `Failed to send message. ${errorText}`;
+                    contactStatus.className =
+                        "text-center mt-4 text-sm font-medium min-h-[1.25rem] text-rose-400";
+                }
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
     }
-  </script>
-  <!-- 
+</script>
+<!--
     ========== CUSTOMIZATION GUIDE ==========
-    1. Update resume link (line with "Download Resume") to your actual PDF URL
-    2. Replace Formspree URL: Sign up at formspree.io and update the form action URL
-    3. Update contact email throughout the page
-    4. Update profile image URLs (ibb.co links)
-    5. Update social media links with your actual profiles
+    1. Update the resume link to your final PDF URL
+    2. Contact details updated to fahadkhan64525@gmail.com and +91 70379 59878
+    3. Update profile image URLs if needed
+    4. Update project/demo links with your live URLs
+    5. Verify the EmailJS service ID, template ID, and public key match your account, and that your template uses the variables user_name/user_email/message or the aliases sent in the script
     6. Deploy to Netlify, Vercel, or GitHub Pages
-  -->
+    7. WhatsApp number: +91 70379 59878 (international format)
+    8. Call number: +91 70379 59878
+-->
 </body>
 </html>
